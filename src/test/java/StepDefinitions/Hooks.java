@@ -37,7 +37,7 @@ public class Hooks {
             File ekranDosyasi = screenshot.getScreenshotAs(OutputType.FILE);
 
             //Extend Reporta ekliyor EXTEND report olmadığında kapat yoksa BROWSER kapanmıyor
-            ExtentTestManager.getTest().addScreenCaptureFromBase64String(getBase64Screenshot());
+            //ExtentTestManager.getTest().addScreenCaptureFromBase64String(getBase64Screenshot());
 
 
             try {
