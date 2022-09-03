@@ -3,7 +3,7 @@ Feature: Field Functionality
   Background:
     Given Navigate to basqar
     When Enter username and password and click login button
-    Then User should login successfully
+    Then User should login successfuly
 
   Scenario: Adding Field
     When Click on the element in the left Nav
@@ -12,7 +12,7 @@ Feature: Field Functionality
       | fields     |
 
     And Click on the element in the Dialog
-      | addButton |
+      | addButton2 |
 
     And User sending the keys in Dialog content
       | name_F | Field1 |
