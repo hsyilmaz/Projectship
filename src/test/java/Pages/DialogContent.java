@@ -67,6 +67,15 @@ public class DialogContent extends Parent {
     @FindBy (xpath = "(//mat-option[@role='option'])[2]")
     private WebElement text;
 
+    @FindBy(css = "[formcontrolname='description']")
+    private WebElement description;
+
+    @FindBy(xpath = "//*[contains(@formcontrolname,'Stage')]")
+    private WebElement stageOne;
+
+    @FindBy(xpath = "(//*[@role='option'])[2]")
+    private WebElement stageTwo;
+
     WebElement myElement;
 
     public void findAndSend(String strElement, String value) {
@@ -90,6 +99,10 @@ public class DialogContent extends Parent {
             case "code_F":
                 myElement = code_F;
                 break;
+            case "description":
+                myElement = description;
+                break;
+
 
         }
 
@@ -135,6 +148,14 @@ public class DialogContent extends Parent {
             case "text":
                 myElement = text;
                 break;
+            case "stageOne":
+                myElement = stageOne;
+                break;
+            case "stageTwo":
+                myElement = stageTwo;
+                break;
+
+
         }
         clickFunction(myElement);
     }

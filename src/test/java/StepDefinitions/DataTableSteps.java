@@ -7,6 +7,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -37,6 +39,12 @@ public class DataTableSteps {
                 wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
             }
             dc.findAndClick(listElement.get(i));
+            if (listElement.get(i).equals("stageTwo"))
+            {
+                Actions actions = new Actions(GWD.getDriver());
+                actions.keyDown(Keys.TAB).perform();
+                actions.keyUp(Keys.TAB).perform();
+            }
         }
     }
 

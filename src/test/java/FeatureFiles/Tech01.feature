@@ -27,6 +27,7 @@ Feature: Position Categories Functionality
       | humanResources      |
       | humanResourcesSetup |
       | positionCategories  |
+
     And User sending the keys in Dialog content
       | searchInputOne | Tester Cey |
 

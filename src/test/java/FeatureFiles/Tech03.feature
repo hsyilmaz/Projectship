@@ -57,3 +57,5 @@ Feature: Document Types Functionality
     And User delete item from Dailog
       | GroupYirmiBir |
 
+    Then Success message should be displayed
+
