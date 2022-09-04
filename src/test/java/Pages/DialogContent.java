@@ -31,10 +31,10 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "//button[text()='Accept all cookies']")
     private WebElement acceptCookies;
 
-    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
+    @FindBy(xpath = "(//ms-text-field//input)[1]")
     private WebElement searchInputOne;
 
-    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[2]")
+    @FindBy(xpath = "(//ms-text-field//input)[2]")
     private WebElement searchInputTwo;
 
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")

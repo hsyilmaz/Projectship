@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-public class _01_LoginSteps {
+public class LoginSteps {
     DialogContent dc=new DialogContent();
 
     @Given("Navigate to basqar")
@@ -27,8 +27,8 @@ public class _01_LoginSteps {
 
     }
 
-    @Then("User should login successfuly")
-    public void userShouldLoginSuccessfuly() {
+    @Then("User should login successfully")
+    public void userShouldLoginSuccessfully() {
         dc.findAndContainsText("dashboard","Dashboard");
     }
 }

@@ -3,7 +3,7 @@ Feature: Position Categories Functionality
   Background:
     Given Navigate to basqar
     When Enter username and password and click login button
-    Then User should login successfuly
+    Then User should login successfully
 
   Scenario:Create a Position Category
     And Click on the element in the left Nav
@@ -52,7 +52,7 @@ Feature: Position Categories Functionality
       | humanResourcesSetup |
       | positionCategories  |
 
-    And User delete item from Dailog
+    And User delete item from Dialog
       | Tester Ceyhun |
 
     Then Success message should be displayed

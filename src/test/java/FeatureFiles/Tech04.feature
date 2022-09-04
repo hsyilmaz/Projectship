@@ -3,7 +3,7 @@ Feature: Field Functionality
   Background:
     Given Navigate to basqar
     When Enter username and password and click login button
-    Then User should login successfuly
+    Then User should login successfully
 
   Scenario: Adding Field
     When Click on the element in the left Nav
@@ -56,7 +56,7 @@ Feature: Field Functionality
       | parameters |
       | fields     |
 
-    And User delete item from Dailog
+    And User delete item from Dialog
       | Field10 |
 
     Then Success message should be displayed

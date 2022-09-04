@@ -3,7 +3,7 @@ Feature: Document Types Functionality
   Background:
     Given Navigate to basqar
     When Enter username and password and click login button
-    Then User should login successfuly
+    Then User should login successfully
 
   Scenario: Create a Document Types
 
@@ -54,7 +54,7 @@ Feature: Document Types Functionality
       | parameters   |
       | documentType |
 
-    And User delete item from Dailog
+    And User delete item from Dialog
       | GroupYirmiBir |
 
     Then Success message should be displayed
