@@ -12,10 +12,12 @@ Feature: Discount Functionality
   Scenario:Create a Discount
     And Click on the element in the Dialog
       | addButton |
+
     And User sending the keys in Dialog content
       | descriptionInput | Musab Sinan |
       | integrationCode  | MSH         |
       | priority         | 35          |
+
     And Click on the element in the Dialog
       | saveButton |
 
@@ -24,15 +26,19 @@ Feature: Discount Functionality
   Scenario: Edit a Discount
     And User sending the keys in Dialog content
       | searchInputOne | Musab Sinan |
+
     And Click on the element in the Dialog
       | searchButton |
       | editButton   |
+
     And User sending the keys in Dialog content
       | descriptionInput | Ebuzer Tutuk |
       | integrationCode  | ET           |
       | priority         | 27           |
+
     And Click on the element in the Dialog
       | saveButton |
+
     Then Success message should be displayed
 
   Scenario: Delete a Discount
