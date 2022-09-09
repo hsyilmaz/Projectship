@@ -37,11 +37,8 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "(//ms-text-field//input)[2]")
     private WebElement searchInputTwo;
 
-    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
-    private WebElement addButton;
-
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'ADD')]//button")
-    private WebElement addButton2;
+    private WebElement addButton;
 
     @FindBy(css = "ms-search-button button")
     private WebElement searchButton;
@@ -76,6 +73,10 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "(//*[@role='option'])[2]")
     private WebElement stageTwo;
 
+    @FindBy(css = "[type='text'][pattern='[0-9]*']")
+    private WebElement capacity;
+
+
     WebElement myElement;
 
     public void findAndSend(String strElement, String value) {
@@ -102,7 +103,9 @@ public class DialogContent extends Parent {
             case "description":
                 myElement = description;
                 break;
-
+            case "capacity":
+                myElement = capacity;
+                break;
 
         }
 
@@ -124,9 +127,6 @@ public class DialogContent extends Parent {
                 break;
             case "addButton":
                 myElement = addButton;
-                break;
-            case "addButton2":
-                myElement = addButton2;
                 break;
             case "searchButton":
                 myElement = searchButton;
@@ -154,7 +154,6 @@ public class DialogContent extends Parent {
             case "stageTwo":
                 myElement = stageTwo;
                 break;
-
 
         }
         clickFunction(myElement);

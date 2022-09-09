@@ -4,13 +4,11 @@ Feature: Position Categories Functionality
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfully
-
-  Scenario:Create a Position Category
     And Click on the element in the left Nav
       | humanResources      |
       | humanResourcesSetup |
       | positionCategories  |
-
+  Scenario:Create a Position Category
     And Click on the element in the Dialog
       | addButton |
 
@@ -23,11 +21,6 @@ Feature: Position Categories Functionality
     Then Success message should be displayed
 
   Scenario:Edit a Position Category
-    And Click on the element in the left Nav
-      | humanResources      |
-      | humanResourcesSetup |
-      | positionCategories  |
-
     And User sending the keys in Dialog content
       | searchInputOne | Tester Cey |
 
@@ -47,11 +40,6 @@ Feature: Position Categories Functionality
 
 
   Scenario:Delete a Position Category
-    And Click on the element in the left Nav
-      | humanResources      |
-      | humanResourcesSetup |
-      | positionCategories  |
-
     And User delete item from Dialog
       | Tester Ceyhun |
 

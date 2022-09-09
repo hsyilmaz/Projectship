@@ -4,21 +4,17 @@ Feature: Document Types Functionality
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfully
-
-  Scenario: Create a Document Types
-
     And Click on the element in the left Nav
       | setupOne     |
       | parameters   |
       | documentType |
-
+  Scenario: Create a Document Types
     And Click on the element in the Dialog
       | addButton |
 
     And User sending the keys in Dialog content
       | searchInputTwo | Mustafa21 |
       | description    | Group21   |
-
 
     And Click on the element in the Dialog
       | stageOne   |
@@ -28,11 +24,6 @@ Feature: Document Types Functionality
     Then Success message should be displayed
 
   Scenario: Edit Document Types
-    And Click on the element in the left Nav
-      | setupOne     |
-      | parameters   |
-      | documentType |
-
     And User sending the keys in Dialog content
       | searchInputOne | Mustafa21 |
 
@@ -49,11 +40,6 @@ Feature: Document Types Functionality
     Then Success message should be displayed
 
   Scenario: Delete Document Types
-    And Click on the element in the left Nav
-      | setupOne     |
-      | parameters   |
-      | documentType |
-
     And User delete item from Dialog
       | GroupYirmiBir |
 

@@ -4,13 +4,12 @@ Feature:Position Functionality
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfully
-
-  Scenario: Create a position
     And Click on the element in the left Nav
       | humanResources      |
       | humanResourcesSetup |
       | positions           |
 
+  Scenario: Create a position
     And Click on the element in the Dialog
       | addButton |
 
@@ -25,11 +24,6 @@ Feature:Position Functionality
 
 
   Scenario: Edit a position
-    And Click on the element in the left Nav
-      | humanResources      |
-      | humanResourcesSetup |
-      | positions           |
-
     And User sending the keys in Dialog content
       | searchInputOne | zzz1 |
 
@@ -47,11 +41,6 @@ Feature:Position Functionality
     Then Success message should be displayed
 
   Scenario: Delete a position
-    And Click on the element in the left Nav
-      | humanResources      |
-      | humanResourcesSetup |
-      | positions           |
-
     And User delete item from Dialog
       | zzz2 |
 

@@ -35,12 +35,9 @@ public class DataTableSteps {
         List<String> listElement = elements.asList(String.class);
 
         for (int i = 0; i < listElement.size(); i++) {
-            if (listElement.get(i).equals("editButton")){
-                wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
-            }
+            wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
             dc.findAndClick(listElement.get(i));
-            if (listElement.get(i).equals("stageTwo"))
-            {
+            if (listElement.get(i).equals("stageTwo")) {
                 Actions actions = new Actions(GWD.getDriver());
                 actions.keyDown(Keys.TAB).perform();
                 actions.keyUp(Keys.TAB).perform();
@@ -70,7 +67,7 @@ public class DataTableSteps {
 
     @Then("Success message should be displayed")
     public void successMessageShouldBeDisplayed() {
-        dc.findAndContainsText("successVerify","successfully");
+        dc.findAndContainsText("successVerify", "successfully");
     }
 
 }

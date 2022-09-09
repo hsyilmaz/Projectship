@@ -4,13 +4,12 @@ Feature: Locations Functionality
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfully
-
-  Scenario: Add School Locations
     And Click on the element in the left Nav
       | setupOne    |
       | schoolSetup |
       | locations   |
 
+  Scenario: Add School Locations
     And Click on the element in the Dialog
       | addButton |
 
@@ -25,11 +24,6 @@ Feature: Locations Functionality
     Then Success message should be displayed
 
   Scenario: Edit School Locations
-    And Click on the element in the left Nav
-      | setupOne    |
-      | schoolSetup |
-      | locations   |
-
     And Click on the element in the Dialog
       | editButton |
 
@@ -44,11 +38,6 @@ Feature: Locations Functionality
     Then Success message should be displayed
 
   Scenario: Delete School Locations
-    And Click on the element in the left Nav
-      | setupOne    |
-      | schoolSetup |
-      | locations   |
-
     And Click on the element in the Dialog
       | deleteButton       |
       | deleteDialogButton |

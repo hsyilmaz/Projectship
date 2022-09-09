@@ -4,15 +4,14 @@ Feature: Field Functionality
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfully
-
-  Scenario: Adding Field
     When Click on the element in the left Nav
       | setupOne   |
       | parameters |
       | fields     |
 
+  Scenario: Adding Field
     And Click on the element in the Dialog
-      | addButton2 |
+      | addButton |
 
     And User sending the keys in Dialog content
       | name_F | Field1 |
@@ -28,12 +27,6 @@ Feature: Field Functionality
     Then Success message should be displayed
 
   Scenario: Editing Field
-
-    When Click on the element in the left Nav
-      | setupOne   |
-      | parameters |
-      | fields     |
-
     And User sending the keys in Dialog content
       | searchInputOne | Field1 |
 
@@ -50,12 +43,6 @@ Feature: Field Functionality
     Then Success message should be displayed
 
   Scenario: Deleting Field
-
-    When Click on the element in the left Nav
-      | setupOne   |
-      | parameters |
-      | fields     |
-
     And User delete item from Dialog
       | Field10 |
 
