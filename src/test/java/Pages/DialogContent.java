@@ -61,7 +61,7 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "(//mat-select[@role]//div[@cdk-overlay-origin])[2]")
     private WebElement fieldType;
 
-    @FindBy (xpath = "(//mat-option[@role='option'])[2]")
+    @FindBy(xpath = "(//mat-option[@role='option'])[2]")
     private WebElement text;
 
     @FindBy(css = "[formcontrolname='description']")
@@ -75,6 +75,16 @@ public class DialogContent extends Parent {
 
     @FindBy(css = "[type='text'][pattern='[0-9]*']")
     private WebElement capacity;
+
+    @FindBy(css = "[formcontrolname='code']>input")
+    private WebElement integrationCode;
+
+    @FindBy(css = "[formcontrolname='priority']>input")
+    private WebElement priority;
+
+
+    @FindBy(css = "[formcontrolname='description']>input")
+    private WebElement descriptionInput;
 
 
     WebElement myElement;
@@ -105,6 +115,15 @@ public class DialogContent extends Parent {
                 break;
             case "capacity":
                 myElement = capacity;
+                break;
+            case "integrationCode":
+                myElement = integrationCode;
+                break;
+            case "priority":
+                myElement = priority;
+                break;
+            case "descriptionInput":
+                myElement = descriptionInput;
                 break;
 
         }
