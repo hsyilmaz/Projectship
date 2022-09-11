@@ -63,6 +63,18 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "(//mat-option[@role='option'])[2]")
     private WebElement text;
 
+        @FindBy(xpath = "(//ms-text-field//input)[1]")
+        private  WebElement name_GL;
+        @FindBy(xpath = "(//ms-text-field//input)[2]")
+        private  WebElement shortNm_GL;
+        @FindBy(xpath = "(//ms-text-field//input)[3]")
+        private  WebElement order_GL;
+
+        @FindBy(xpath = "//td[text()='GrLv_Hy']//following::ms-edit-button//button")
+        private WebElement edit_GL;
+        @FindBy(xpath = "//td[text()='GrLv_Yh']//following::ms-delete-button//button")
+        private WebElement delete_GL;
+
     @FindBy(css = "[formcontrolname='description']")
     private WebElement description;
 
@@ -125,6 +137,16 @@ public class DialogContent extends Parent{
                 myElement = descriptionInput;
                 break;
 
+            case "name_GL":
+                myElement = name_GL;
+                break;
+            case "shortNm_GL":
+                myElement = shortNm_GL;
+                break;
+            case "order_GL":
+                myElement = order_GL;
+                break;
+
         }
 
         // burda string isimden webelemente ulaşıcam
@@ -171,6 +193,12 @@ public class DialogContent extends Parent{
                 break;
             case "stageTwo":
                 myElement = stageTwo;
+                break;
+            case "edit_GL":
+                myElement = edit_GL;
+                break;
+            case "delete_GL":
+                myElement = delete_GL;
                 break;
 
         }
