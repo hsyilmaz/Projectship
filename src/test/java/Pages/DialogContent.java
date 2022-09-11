@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 public class DialogContent extends Parent{
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
-
     }
 
     @FindBy(id = "mat-input-0")
