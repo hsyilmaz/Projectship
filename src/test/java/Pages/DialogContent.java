@@ -63,18 +63,6 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "(//mat-option[@role='option'])[2]")
     private WebElement text;
 
-        @FindBy(xpath = "(//ms-text-field//input)[1]")
-        private  WebElement name_GL;
-        @FindBy(xpath = "(//ms-text-field//input)[2]")
-        private  WebElement shortNm_GL;
-        @FindBy(xpath = "(//ms-text-field//input)[3]")
-        private  WebElement order_GL;
-
-        @FindBy(xpath = "//td[text()='GrLv_Hy']//following::ms-edit-button//button")
-        private WebElement edit_GL;
-        @FindBy(xpath = "//td[text()='GrLv_Yh']//following::ms-delete-button//button")
-        private WebElement delete_GL;
-
     @FindBy(css = "[formcontrolname='description']")
     private WebElement description;
 
@@ -93,9 +81,23 @@ public class DialogContent extends Parent{
     @FindBy(css = "[formcontrolname='priority']>input")
     private WebElement priority;
 
-
     @FindBy(css = "[formcontrolname='description']>input")
     private WebElement descriptionInput;
+
+    @FindBy(xpath = "(//ms-text-field//input)[1]")
+    private  WebElement name_GL;
+
+    @FindBy(xpath = "(//ms-text-field//input)[2]")
+    private  WebElement shortNm_GL;
+
+    @FindBy(xpath = "(//ms-text-field//input)[3]")
+    private  WebElement order_GL;
+
+    @FindBy(xpath = "//td[text()='GrLv_Hy']//following::ms-edit-button//button")
+    private WebElement edit_GL;
+
+    @FindBy(xpath = "//td[text()='GrLv_Yh']//following::ms-delete-button//button")
+    private WebElement delete_GL;
 
 
     WebElement myElement;
@@ -136,7 +138,6 @@ public class DialogContent extends Parent{
             case "descriptionInput":
                 myElement = descriptionInput;
                 break;
-
             case "name_GL":
                 myElement = name_GL;
                 break;
@@ -158,7 +159,6 @@ public class DialogContent extends Parent{
             case "loginButton":
                 myElement = loginButton;
                 break;
-
             case "saveButton":
                 myElement = saveButton;
                 break;
@@ -171,11 +171,9 @@ public class DialogContent extends Parent{
             case "searchButton":
                 myElement = searchButton;
                 break;
-
             case "deleteButton":
                 myElement = deleteButton;
                 break;
-
             case "editButton":
                 myElement = editButton;
                 break;
