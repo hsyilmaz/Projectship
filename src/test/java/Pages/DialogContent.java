@@ -100,6 +100,25 @@ public class DialogContent extends Parent{
     private WebElement delete_GL;
 
 
+    @FindBy(css = "[formcontrolname='iban']>input")
+    private WebElement ibanInput;
+
+
+    @FindBy(xpath = "//*[contains(@formcontrolname,'currency')]")
+    private WebElement currency;
+
+
+    @FindBy(xpath = "(//span[@class='mat-option-text'])[4]")
+    private WebElement currencyselect;
+
+
+    @FindBy(xpath = "(//span[@class='mat-option-text'])[3]")
+    private WebElement currencyselect2;
+
+
+    @FindBy(css = "[formcontrolname='integrationCode']>input")
+    private WebElement integrationCode2;
+
     WebElement myElement;
 
     public void findAndSend(String strElement, String value) {
@@ -147,7 +166,12 @@ public class DialogContent extends Parent{
             case "order_GL":
                 myElement = order_GL;
                 break;
-
+            case "ibanInput":
+                myElement = ibanInput;
+                break;
+            case "integrationCode2":
+                myElement = integrationCode2;
+                break;
         }
 
         // burda string isimden webelemente ulaşıcam
@@ -198,7 +222,15 @@ public class DialogContent extends Parent{
             case "delete_GL":
                 myElement = delete_GL;
                 break;
-
+            case "currency":
+                myElement = currency;
+                break;
+            case "currencyselect":
+                myElement = currencyselect;
+                break;
+            case "currencyselect2":
+                myElement = currencyselect2;
+                break;
         }
         clickFunction(myElement);
     }
