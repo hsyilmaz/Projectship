@@ -1,47 +1,43 @@
-Feature:Position Functionality
+Feature:Departments Functionality
 
   Background:
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfully
     And Click on the element in the left Nav
-      | humanResources      |
-      | humanResourcesSetup |
-      | positions           |
+      | setupOne    |
+      | schoolSetup |
+      | departments |
 
-  Scenario: Create a position
+  Scenario: Create a departments
     And Click on the element in the Dialog
       | addButton |
 
     And User sending the keys in Dialog content
-      | name_F | zzz1 |
-      | code_F | z1   |
+      | name_GL    | zzz |
+      | shortNm_GL | z1  |
 
     And Click on the element in the Dialog
       | saveButton |
 
     Then Success message should be displayed
 
-  Scenario: Edit a position
-    And User sending the keys in Dialog content
-      | searchInputOne | zzz1 |
-
+  Scenario: Edit a departments
     And Click on the element in the Dialog
-      | searchButton |
-      | editButton   |
+      | edit_D |
 
     And User sending the keys in Dialog content
-      | name_F | zzz2 |
-      | code_F | z2   |
+      | name_GL    | zz |
+      | shortNm_GL | z2 |
 
     And Click on the element in the Dialog
       | saveButton |
 
     Then Success message should be displayed
 
-  Scenario: Delete a position
-    And User delete item from Dialog
-      | zzz2 |
+  Scenario: Delete a departments
+    And Click on the element in the Dialog
+      | delete_D           |
+      | deleteDialogButton |
 
     Then Success message should be displayed
-

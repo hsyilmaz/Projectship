@@ -17,10 +17,10 @@ public class Parent {
     JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
 
     public void sendKeysFunction(WebElement element, String value) {
-        waitUntilVisible(element); // gözükene kadar bekle
-        scrollToElement(element); // elemente scroll yap
-        element.clear(); // temizle
-        element.sendKeys(value); // değeri gönder
+        waitUntilVisible(element);
+        scrollToElement(element);
+        element.clear();
+        element.sendKeys(value);
     }
 
     public void waitUntilVisible(WebElement element) {
@@ -32,9 +32,10 @@ public class Parent {
     }
 
     public void clickFunction(WebElement element) {
-        waitUntilClickable(element); // tıklanabilir olana kadar bekle
-        scrollToElement(element); // elemente scroll yap
-        element.click(); // click yap
+        waitUntilLoading();
+        waitUntilClickable(element);
+        scrollToElement(element);
+        element.click();
     }
 
     public void waitUntilClickable(WebElement element) {

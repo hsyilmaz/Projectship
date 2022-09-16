@@ -1,4 +1,4 @@
-Feature:Position Functionality
+Feature:Subject Categories Functionality
 
   Background:
     Given Navigate to basqar
@@ -9,7 +9,7 @@ Feature:Position Functionality
       | educationSetup    |
       | subjectCategories |
 
-  Scenario: Create a position
+  Scenario: Create a subject categories
     And Click on the element in the Dialog
       | addButton |
 
@@ -22,7 +22,7 @@ Feature:Position Functionality
 
     Then Success message should be displayed
 
-  Scenario: Edit a position
+  Scenario: Edit a subject categories
     And User sending the keys in Dialog content
       | searchInputOne | zzz1 |
 
@@ -39,7 +39,7 @@ Feature:Position Functionality
 
     Then Success message should be displayed
 
-  Scenario: Delete a position
+  Scenario: Delete a subject categories
     And User delete item from Dialog
       | zzz2 |
 

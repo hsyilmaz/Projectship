@@ -12,6 +12,7 @@ public class DialogContent extends Parent{
 
     @FindBy(id = "mat-input-0")
     private WebElement username;
+
     @FindBy(id = "mat-input-1")
     private WebElement password;
 
@@ -119,6 +120,15 @@ public class DialogContent extends Parent{
     @FindBy(css = "[formcontrolname='integrationCode']>input")
     private WebElement integrationCode2;
 
+
+    @FindBy(xpath = "//td[text()='zzz']//following::ms-edit-button//button")
+    private WebElement edit_D;
+
+
+    @FindBy(xpath = "//td[text()='zz']//following::ms-delete-button//button")
+    private WebElement delete_D;
+
+
     WebElement myElement;
 
     public void findAndSend(String strElement, String value) {
@@ -173,8 +183,6 @@ public class DialogContent extends Parent{
                 myElement = integrationCode2;
                 break;
         }
-
-        // burda string isimden webelemente ulaşıcam
         sendKeysFunction(myElement, value);
     }
 
@@ -231,6 +239,12 @@ public class DialogContent extends Parent{
             case "currencyselect2":
                 myElement = currencyselect2;
                 break;
+            case "edit_D":
+                myElement = edit_D;
+                break;
+            case "delete_D":
+                myElement = delete_D;
+                break;
         }
         clickFunction(myElement);
     }
@@ -250,10 +264,10 @@ public class DialogContent extends Parent{
 
 
     public void searchAndDelete(String searchText) {
-        findAndSend("searchInputOne", searchText);// arama kutucuguna kelimeyi yaz
-        findAndClick("searchButton");// arama butonuna bas
+        findAndSend("searchInputOne", searchText);
+        findAndClick("searchButton");
         waitUntilLoading();
-        findAndClick("deleteButton");// silme butonuna bas
-        findAndClick("deleteDialogButton");// diyalogdaki silme butonuna bas
+        findAndClick("deleteButton");
+        findAndClick("deleteDialogButton");
     }
 }

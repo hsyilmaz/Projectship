@@ -35,7 +35,6 @@ public class DataTableSteps {
         List<String> listElement = elements.asList(String.class);
 
         for (int i = 0; i < listElement.size(); i++) {
-            wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
             dc.findAndClick(listElement.get(i));
             if (listElement.get(i).equals("stageTwo")) {
                 Actions actions = new Actions(GWD.getDriver());
@@ -51,7 +50,6 @@ public class DataTableSteps {
 
         for (int i = 0; i < listElement.size(); i++) {
             dc.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
-            // listin ilk elemanına(webelement adı), ikinci elemanı yani değeri gönder
         }
     }
 
@@ -61,7 +59,6 @@ public class DataTableSteps {
 
         for (int i = 0; i < listElement.size(); i++) {
             dc.searchAndDelete(listElement.get(i));
-            // listin ilk elemanına(webelement adı), ikinci elemanı yani değeri gönder
         }
     }
 

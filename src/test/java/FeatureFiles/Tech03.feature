@@ -8,6 +8,7 @@ Feature: Document Types Functionality
       | setupOne     |
       | parameters   |
       | documentType |
+
   Scenario: Create a Document Types
     And Click on the element in the Dialog
       | addButton |

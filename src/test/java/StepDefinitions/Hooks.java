@@ -32,11 +32,10 @@ public class Hooks {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy");
 
         if (scenario.isFailed()){
-            // klasöre
+
             TakesScreenshot screenshot = (TakesScreenshot) GWD.getDriver();
             File ekranDosyasi = screenshot.getScreenshotAs(OutputType.FILE);
 
-            //Extend Reporta ekliyor EXTEND report olmadığında kapat yoksa BROWSER kapanmıyor
             //ExtentTestManager.getTest().addScreenCaptureFromBase64String(getBase64Screenshot());
 
 
@@ -49,8 +48,6 @@ public class Hooks {
             }
 
         }
-
-        // ekran görüntüsü al senaryo hatalı ise
         GWD.quitDriver();
     }
 

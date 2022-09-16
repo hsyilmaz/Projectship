@@ -8,6 +8,7 @@ Feature: Position Categories Functionality
       | humanResources      |
       | humanResourcesSetup |
       | positionCategories  |
+
   Scenario:Create a Position Category
     And Click on the element in the Dialog
       | addButton |
@@ -37,7 +38,6 @@ Feature: Position Categories Functionality
       | saveButton |
 
     Then Success message should be displayed
-
 
   Scenario:Delete a Position Category
     And User delete item from Dialog

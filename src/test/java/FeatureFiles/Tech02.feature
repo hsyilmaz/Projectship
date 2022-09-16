@@ -8,6 +8,7 @@ Feature: Attestations Functionality
       | humanResources      |
       | humanResourcesSetup |
       | attestations        |
+
   Scenario:Create a Attestations
     And Click on the element in the Dialog
       | addButton |
@@ -37,7 +38,6 @@ Feature: Attestations Functionality
       | saveButton |
 
     Then Success message should be displayed
-
 
   Scenario:Delete a Attestations
     And User delete item from Dialog
