@@ -7,7 +7,7 @@
     <test name="Test 1">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="Runners.RunnerClass"></class>
+            <class name="StepDefinitions.Runners.RunnerClass"></class>
         </classes>
     </test>
 

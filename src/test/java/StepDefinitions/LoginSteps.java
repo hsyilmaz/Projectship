@@ -14,8 +14,6 @@ public class LoginSteps {
     public void navigateToBasqar() {
         GWD.getDriver().get("https://demo.mersys.io/");
         GWD.getDriver().manage().window().maximize();
-        // username richfield.edu
-        // password Richfield2020!
     }
 
     @When("Enter username and password and click login button")
