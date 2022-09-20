@@ -1,4 +1,4 @@
-package StepDefinitions.Runners;
+package Runners;
 
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
