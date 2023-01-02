@@ -1,0 +1,802 @@
+{
+	"info": {
+		"_postman_id": "2e9ae986-5e56-4d72-825b-28ca863ecbbe",
+		"name": "ProjectShip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23483183"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"turkeyts\",\"password\": \"TechnoStudy123\",\"rememberMe\": \"true\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test.mersys.io/auth/login",
+					"protocol": "https",
+					"host": [
+						"test",
+						"mersys",
+						"io"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Position",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = pm.response.json();",
+							"console.log(body.id);  // kod dogruluk kontrolu",
+							"",
+							"pm.collectionVariables.set(\"positionID\",body.id); ",
+							"// collection variables are set.",
+							"pm.collectionVariables.set(\"positionName\",body.name); ",
+							"",
+							"pm.test(\"Successful POST request\", function () ",
+							"{ pm.expect(pm.response.code).to.be.oneOf([201]);}",
+							");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": null,\n  \"name\": \"{{$randomJobTitle}}\",\n  \"shortName\": \"{{$randomJobType}}\",\n  \"tenantId\": \"5fe0786230cc4d59295712cf\",\n  \"translateName\": []\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Position Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": null,\n  \"name\": \"{{PositionName}}\",\n  \"shortName\": \"{{$randomJobType}}\",\n  \"tenantId\": \"5fe0786230cc4d59295712cf\",\n  \"translateName\": []\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sub.Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = pm.response.json();",
+							"console.log(body.id);  // kod dogruluk kontrolu",
+							"",
+							"pm.collectionVariables.set(\"subjectCatID\",body.id); ",
+							"// collection variables are set.",
+							"pm.collectionVariables.set(\"subjectCatgName\",body.name);",
+							"",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": null,\n  \"name\":\"{{$randomDomainName}}\",\n  \"code\": \"{{$randomAlphaNumeric}}\",\n  \"active\": true,\n  \"translateName\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sub.Category Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": null,\n  \"name\": \"{{subjectCatgName}}\",\n  \"code\": \"{{$randomAlphaNumeric}}\",\n  \"active\": true,\n  \"translateName\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Attestation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body=pm.response.json();\r",
+							"var id=body.id;\r",
+							"console.log(id); //kod doğruluk kontrolü\r",
+							"\r",
+							"pm.collectionVariables.set(\"attesID\", id);\r",
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": null,\"name\": \"{{$randomFirstName}}\", \"translateName\": []}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}attestation",
+					"host": [
+						"{{CAMPUSURL}}attestation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Position",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"active\":true,\n  \"id\": \"{{positionID}}\",\n  \"name\": \"{{$randomJobType}}\",\n  \"shortName\": \"Mnp\",\n  \"tenantId\": \"5fe0786230cc4d59295712cf\",\n  \"translateName\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Sub.Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"{{subjectCatID}}\",\n  \"name\": \"SubCatxyz\",\n  \"code\": \"{{$randomDomainSuffix}}\",\n  \"active\": true,\n  \"translateName\": []\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Attestation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": \"{{attesID}}\",\"name\": \"{{$randomFirstName}}\", \"translateName\": []}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}attestation",
+					"host": [
+						"{{CAMPUSURL}}attestation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Position",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position/{{positionID}}",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					],
+					"path": [
+						"{{positionID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sub.Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories/{{subjectCatID}}",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					],
+					"path": [
+						"{{subjectCatID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Attestation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}attestation/{{attesID}}",
+					"host": [
+						"{{CAMPUSURL}}attestation"
+					],
+					"path": [
+						"{{attesID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Position Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"active\":true,\n  \"id\": \"{{positionID}}\",\n  \"name\": \"{{$randomJobType}}\",\n  \"shortName\": \"Mnp\",\n  \"tenantId\": \"5fe0786230cc4d59295712cf\",\n  \"translateName\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Sub.Category Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"{{subjectCatID}}\",\n  \"name\": \"SubCatxyz\",\n  \"code\": \"{{$randomDomainSuffix}}\",\n  \"active\": true,\n  \"translateName\": []\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Position Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204); // There must be a Bug because this status must have been 400",
+							"});",
+							"// Burada bir BUG var normalde 400 kodu vermesi lazim. Cunku:",
+							"// Silinmis bir id bir daha silinmeye calisilirsa 400 kodunu vermeli"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position/{{positionID}}",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					],
+					"path": [
+						"{{positionID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sub.Category Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories/{{subjectCatID}}",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					],
+					"path": [
+						"{{subjectCatID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of Sub.Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"// GET ile de calisti.",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}subject-categories/search",
+					"host": [
+						"{{CAMPUSURL}}subject-categories"
+					],
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of Position",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"// GET ile de calisti.",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}employee-position/search",
+					"host": [
+						"{{CAMPUSURL}}employee-position"
+					],
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of Attestation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"// GET ile de calisti.",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CAMPUSURL}}attestation/search",
+					"host": [
+						"{{CAMPUSURL}}attestation"
+					],
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "countryID",
+			"value": ""
+		},
+		{
+			"key": "countryName",
+			"value": ""
+		},
+		{
+			"key": "positionID",
+			"value": ""
+		},
+		{
+			"key": "positionName",
+			"value": ""
+		},
+		{
+			"key": "subjectCatID",
+			"value": ""
+		},
+		{
+			"key": "attesID",
+			"value": ""
+		},
+		{
+			"key": "positionShortName",
+			"value": ""
+		},
+		{
+			"key": "subjectCatName",
+			"value": ""
+		},
+		{
+			"key": "subjectCatgName",
+			"value": ""
+		}
+	]
+}
